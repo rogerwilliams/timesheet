@@ -1,0 +1,347 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A4A10AE41460956400913801 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A10AE31460956400913801 /* UIKit.framework */; };
+		A4A10AE61460956400913801 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A10AE51460956400913801 /* Foundation.framework */; };
+		A4A10AE81460956400913801 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A10AE71460956400913801 /* CoreGraphics.framework */; };
+		A4A10AEA1460956400913801 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A10AE91460956400913801 /* CoreData.framework */; };
+		A4A10AF01460956400913801 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A4A10AEE1460956400913801 /* InfoPlist.strings */; };
+		A4A10AF21460956400913801 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A10AF11460956400913801 /* main.m */; };
+		A4A10AF61460956400913801 /* TSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A10AF51460956400913801 /* TSAppDelegate.m */; };
+		A4A10AF91460956400913801 /* iOSTimesheet.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A4A10AF71460956400913801 /* iOSTimesheet.xcdatamodeld */; };
+		A4A10AFC1460956400913801 /* TSMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A10AFB1460956400913801 /* TSMasterViewController.m */; };
+		A4A10AFF1460956400913801 /* TSDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A10AFE1460956400913801 /* TSDetailViewController.m */; };
+		A4A10B021460956400913801 /* TSMasterViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4A10B001460956400913801 /* TSMasterViewController_iPhone.xib */; };
+		A4A10B051460956400913801 /* TSMasterViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4A10B031460956400913801 /* TSMasterViewController_iPad.xib */; };
+		A4A10B081460956400913801 /* TSDetailViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4A10B061460956400913801 /* TSDetailViewController_iPhone.xib */; };
+		A4A10B0B1460956400913801 /* TSDetailViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4A10B091460956400913801 /* TSDetailViewController_iPad.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A4A10ADF1460956400913801 /* iOSTimesheet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSTimesheet.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4A10AE31460956400913801 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		A4A10AE51460956400913801 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A4A10AE71460956400913801 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		A4A10AE91460956400913801 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		A4A10AED1460956400913801 /* iOSTimesheet-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iOSTimesheet-Info.plist"; sourceTree = "<group>"; };
+		A4A10AEF1460956400913801 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A4A10AF11460956400913801 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A4A10AF31460956400913801 /* iOSTimesheet-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iOSTimesheet-Prefix.pch"; sourceTree = "<group>"; };
+		A4A10AF41460956400913801 /* TSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSAppDelegate.h; sourceTree = "<group>"; };
+		A4A10AF51460956400913801 /* TSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSAppDelegate.m; sourceTree = "<group>"; };
+		A4A10AF81460956400913801 /* iOSTimesheet.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iOSTimesheet.xcdatamodel; sourceTree = "<group>"; };
+		A4A10AFA1460956400913801 /* TSMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSMasterViewController.h; sourceTree = "<group>"; };
+		A4A10AFB1460956400913801 /* TSMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSMasterViewController.m; sourceTree = "<group>"; };
+		A4A10AFD1460956400913801 /* TSDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSDetailViewController.h; sourceTree = "<group>"; };
+		A4A10AFE1460956400913801 /* TSDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSDetailViewController.m; sourceTree = "<group>"; };
+		A4A10B011460956400913801 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TSMasterViewController_iPhone.xib; sourceTree = "<group>"; };
+		A4A10B041460956400913801 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TSMasterViewController_iPad.xib; sourceTree = "<group>"; };
+		A4A10B071460956400913801 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TSDetailViewController_iPhone.xib; sourceTree = "<group>"; };
+		A4A10B0A1460956400913801 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TSDetailViewController_iPad.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A4A10ADC1460956400913801 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A4A10AE41460956400913801 /* UIKit.framework in Frameworks */,
+				A4A10AE61460956400913801 /* Foundation.framework in Frameworks */,
+				A4A10AE81460956400913801 /* CoreGraphics.framework in Frameworks */,
+				A4A10AEA1460956400913801 /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A4A10AD41460956400913801 = {
+			isa = PBXGroup;
+			children = (
+				A4A10AEB1460956400913801 /* iOSTimesheet */,
+				A4A10AE21460956400913801 /* Frameworks */,
+				A4A10AE01460956400913801 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A4A10AE01460956400913801 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A4A10ADF1460956400913801 /* iOSTimesheet.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A4A10AE21460956400913801 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A4A10AE31460956400913801 /* UIKit.framework */,
+				A4A10AE51460956400913801 /* Foundation.framework */,
+				A4A10AE71460956400913801 /* CoreGraphics.framework */,
+				A4A10AE91460956400913801 /* CoreData.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A4A10AEB1460956400913801 /* iOSTimesheet */ = {
+			isa = PBXGroup;
+			children = (
+				A4A10AF41460956400913801 /* TSAppDelegate.h */,
+				A4A10AF51460956400913801 /* TSAppDelegate.m */,
+				A4A10AFA1460956400913801 /* TSMasterViewController.h */,
+				A4A10AFB1460956400913801 /* TSMasterViewController.m */,
+				A4A10AFD1460956400913801 /* TSDetailViewController.h */,
+				A4A10AFE1460956400913801 /* TSDetailViewController.m */,
+				A4A10B001460956400913801 /* TSMasterViewController_iPhone.xib */,
+				A4A10B031460956400913801 /* TSMasterViewController_iPad.xib */,
+				A4A10B061460956400913801 /* TSDetailViewController_iPhone.xib */,
+				A4A10B091460956400913801 /* TSDetailViewController_iPad.xib */,
+				A4A10AF71460956400913801 /* iOSTimesheet.xcdatamodeld */,
+				A4A10AEC1460956400913801 /* Supporting Files */,
+			);
+			path = iOSTimesheet;
+			sourceTree = "<group>";
+		};
+		A4A10AEC1460956400913801 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A4A10AED1460956400913801 /* iOSTimesheet-Info.plist */,
+				A4A10AEE1460956400913801 /* InfoPlist.strings */,
+				A4A10AF11460956400913801 /* main.m */,
+				A4A10AF31460956400913801 /* iOSTimesheet-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A4A10ADE1460956400913801 /* iOSTimesheet */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A4A10B0E1460956400913801 /* Build configuration list for PBXNativeTarget "iOSTimesheet" */;
+			buildPhases = (
+				A4A10ADB1460956400913801 /* Sources */,
+				A4A10ADC1460956400913801 /* Frameworks */,
+				A4A10ADD1460956400913801 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iOSTimesheet;
+			productName = iOSTimesheet;
+			productReference = A4A10ADF1460956400913801 /* iOSTimesheet.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A4A10AD61460956400913801 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = "UXC Professional Solutions";
+			};
+			buildConfigurationList = A4A10AD91460956400913801 /* Build configuration list for PBXProject "iOSTimesheet" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = A4A10AD41460956400913801;
+			productRefGroup = A4A10AE01460956400913801 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A4A10ADE1460956400913801 /* iOSTimesheet */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A4A10ADD1460956400913801 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A4A10AF01460956400913801 /* InfoPlist.strings in Resources */,
+				A4A10B021460956400913801 /* TSMasterViewController_iPhone.xib in Resources */,
+				A4A10B051460956400913801 /* TSMasterViewController_iPad.xib in Resources */,
+				A4A10B081460956400913801 /* TSDetailViewController_iPhone.xib in Resources */,
+				A4A10B0B1460956400913801 /* TSDetailViewController_iPad.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A4A10ADB1460956400913801 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A4A10AF21460956400913801 /* main.m in Sources */,
+				A4A10AF61460956400913801 /* TSAppDelegate.m in Sources */,
+				A4A10AF91460956400913801 /* iOSTimesheet.xcdatamodeld in Sources */,
+				A4A10AFC1460956400913801 /* TSMasterViewController.m in Sources */,
+				A4A10AFF1460956400913801 /* TSDetailViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A4A10AEE1460956400913801 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A4A10AEF1460956400913801 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A4A10B001460956400913801 /* TSMasterViewController_iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A4A10B011460956400913801 /* en */,
+			);
+			name = TSMasterViewController_iPhone.xib;
+			sourceTree = "<group>";
+		};
+		A4A10B031460956400913801 /* TSMasterViewController_iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A4A10B041460956400913801 /* en */,
+			);
+			name = TSMasterViewController_iPad.xib;
+			sourceTree = "<group>";
+		};
+		A4A10B061460956400913801 /* TSDetailViewController_iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A4A10B071460956400913801 /* en */,
+			);
+			name = TSDetailViewController_iPhone.xib;
+			sourceTree = "<group>";
+		};
+		A4A10B091460956400913801 /* TSDetailViewController_iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A4A10B0A1460956400913801 /* en */,
+			);
+			name = TSDetailViewController_iPad.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A4A10B0C1460956400913801 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A4A10B0D1460956400913801 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A4A10B0F1460956400913801 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iOSTimesheet/iOSTimesheet-Prefix.pch";
+				INFOPLIST_FILE = "iOSTimesheet/iOSTimesheet-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		A4A10B101460956400913801 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iOSTimesheet/iOSTimesheet-Prefix.pch";
+				INFOPLIST_FILE = "iOSTimesheet/iOSTimesheet-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A4A10AD91460956400913801 /* Build configuration list for PBXProject "iOSTimesheet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A4A10B0C1460956400913801 /* Debug */,
+				A4A10B0D1460956400913801 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A4A10B0E1460956400913801 /* Build configuration list for PBXNativeTarget "iOSTimesheet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A4A10B0F1460956400913801 /* Debug */,
+				A4A10B101460956400913801 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A4A10AF71460956400913801 /* iOSTimesheet.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A4A10AF81460956400913801 /* iOSTimesheet.xcdatamodel */,
+			);
+			currentVersion = A4A10AF81460956400913801 /* iOSTimesheet.xcdatamodel */;
+			path = iOSTimesheet.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = A4A10AD61460956400913801 /* Project object */;
+}
