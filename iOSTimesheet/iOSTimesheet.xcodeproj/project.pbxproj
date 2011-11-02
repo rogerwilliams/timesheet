@@ -21,6 +21,7 @@
 		A4A10B051460956400913801 /* TSMasterViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4A10B031460956400913801 /* TSMasterViewController_iPad.xib */; };
 		A4A10B081460956400913801 /* TSDetailViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4A10B061460956400913801 /* TSDetailViewController_iPhone.xib */; };
 		A4A10B0B1460956400913801 /* TSDetailViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4A10B091460956400913801 /* TSDetailViewController_iPad.xib */; };
+		A4A10B1B1460D26B00913801 /* TSDetailTableDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A10B1A1460D26A00913801 /* TSDetailTableDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,8 @@
 		A4A10B041460956400913801 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TSMasterViewController_iPad.xib; sourceTree = "<group>"; };
 		A4A10B071460956400913801 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TSDetailViewController_iPhone.xib; sourceTree = "<group>"; };
 		A4A10B0A1460956400913801 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TSDetailViewController_iPad.xib; sourceTree = "<group>"; };
+		A4A10B191460D26A00913801 /* TSDetailTableDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; path = TSDetailTableDelegate.h; sourceTree = "<group>"; };
+		A4A10B1A1460D26A00913801 /* TSDetailTableDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSDetailTableDelegate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +101,8 @@
 				A4A10AFB1460956400913801 /* TSMasterViewController.m */,
 				A4A10AFD1460956400913801 /* TSDetailViewController.h */,
 				A4A10AFE1460956400913801 /* TSDetailViewController.m */,
+				A4A10B191460D26A00913801 /* TSDetailTableDelegate.h */,
+				A4A10B1A1460D26A00913801 /* TSDetailTableDelegate.m */,
 				A4A10B001460956400913801 /* TSMasterViewController_iPhone.xib */,
 				A4A10B031460956400913801 /* TSMasterViewController_iPad.xib */,
 				A4A10B061460956400913801 /* TSDetailViewController_iPhone.xib */,
@@ -190,6 +195,7 @@
 				A4A10AF91460956400913801 /* iOSTimesheet.xcdatamodeld in Sources */,
 				A4A10AFC1460956400913801 /* TSMasterViewController.m in Sources */,
 				A4A10AFF1460956400913801 /* TSDetailViewController.m in Sources */,
+				A4A10B1B1460D26B00913801 /* TSDetailTableDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,6 +333,7 @@
 				A4A10B101460956400913801 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
