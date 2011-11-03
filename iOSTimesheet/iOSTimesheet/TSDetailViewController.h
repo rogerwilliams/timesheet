@@ -7,16 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TSDetailTableDelegate.h"
 
-@interface TSDetailViewController : UIViewController <UISplitViewControllerDelegate>
+@interface TSDetailViewController : UITableViewController <UISplitViewControllerDelegate>
 
 @property (strong, nonatomic) id detailItem;
 
 @property (strong, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
-
-@property (strong,nonatomic)  TSDetailTableDelegate * tableDelegate;
-
-@property (strong,nonatomic) IBOutlet UITableView * tableview;
 
 @end

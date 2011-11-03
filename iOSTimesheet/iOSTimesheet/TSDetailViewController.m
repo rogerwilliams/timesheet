@@ -18,8 +18,6 @@
 @synthesize detailItem = _detailItem;
 @synthesize detailDescriptionLabel = _detailDescriptionLabel;
 @synthesize masterPopoverController = _masterPopoverController;
-@synthesize tableDelegate;
-@synthesize tableview;
 
 - (void)dealloc
 {
@@ -70,10 +68,6 @@
     
     UIBarButtonItem *addButton = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewTask)] autorelease];
     self.navigationItem.rightBarButtonItem = addButton;
-    
-    TSDetailTableDelegate * tableviewDelegate = [[TSDetailTableDelegate alloc] init];
-    self.tableDelegate = tableviewDelegate;
-    self.tableview.delegate=tableviewDelegate;
     
     NSLog(@"viewdidLoad");
     
