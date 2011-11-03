@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface TSDetailViewController : UITableViewController <UISplitViewControllerDelegate>
+#import <CoreData/CoreData.h>
+@interface TSDetailViewController : UITableViewController <UISplitViewControllerDelegate,NSFetchedResultsControllerDelegate>
 
 @property (strong, nonatomic) id detailItem;
 
 @property (strong, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
+
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 @end

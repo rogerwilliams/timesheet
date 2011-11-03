@@ -55,6 +55,7 @@
         self.window.rootViewController = self.splitViewController;
         masterViewController.detailViewController = detailViewController;
         masterViewController.managedObjectContext = self.managedObjectContext;
+        detailViewController.managedObjectContext = self.managedObjectContext;
     }
     [self.window makeKeyAndVisible];
     return YES;

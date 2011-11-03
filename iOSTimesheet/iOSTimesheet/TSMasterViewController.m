@@ -167,6 +167,7 @@
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
 	    if (!self.detailViewController) {
 	        self.detailViewController = [[[TSDetailViewController alloc] initWithNibName:@"TSDetailViewController_iPhone" bundle:nil] autorelease];
+            self.detailViewController.managedObjectContext=self.managedObjectContext;
 	    }
         NSManagedObject *selectedObject = [[self fetchedResultsController] objectAtIndexPath:indexPath];
         self.detailViewController.detailItem = selectedObject;    
