@@ -11,18 +11,34 @@ static NSString *kViewKey = @"viewKey";
 
 const NSInteger kViewTag = 1;
 
+
+@interface TSActivityViewController()
+- (UITextField *) makeTextField;
+@end;
+
 @implementation TSActivityViewController
 
-@synthesize textFieldNormal, textFieldRounded, textFieldSecure, textFieldLeftView, dataSourceArray;
+@synthesize  dataSourceArray,timeStamp,activityCode;
+
+- (id)initWithNibNameTimeStampandActivityCode:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+        timestamp:(NSDate *) timestamp activitycode:(NSString *) activitycode
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        [timeStamp retain];
+        timeStamp = timestamp;
+        [activityCode retain];
+        activityCode = activitycode;
+    }
+	
+    return self;
+}
 
 - (void)dealloc
-{
-	[textFieldNormal release];
-	[textFieldRounded release];
-	[textFieldSecure release];
-	[textFieldLeftView release];
-	
+{	
 	[dataSourceArray release];
+//    [timeStamp release];
+//    [activityCode release];
 	
 	[super dealloc];
 }
@@ -30,34 +46,51 @@ const NSInteger kViewTag = 1;
 - (void)viewDidLoad
 {
 	[super viewDidLoad];
-	
 	self.dataSourceArray = [NSArray arrayWithObjects:
                             [NSDictionary dictionaryWithObjectsAndKeys:
-                             @"UITextField", kSectionTitleKey,
-                             @"TextFieldController.m: textFieldNormal", kSourceKey,
-                             self.textFieldNormal, kViewKey,
+                             @"MondayHours", kSectionTitleKey,
+                             @"Hours for Monday", kSourceKey,
+                             [self makeTextField], kViewKey,
 							 nil],
-							
-							[NSDictionary dictionaryWithObjectsAndKeys:
-                             @"UITextField Rounded", kSectionTitleKey,
-                             @"TextFieldController.m: textFieldRounded", kSourceKey,
-                             self.textFieldRounded, kViewKey,
+                            
+                            [NSDictionary dictionaryWithObjectsAndKeys:
+                             @"TuesdayHours", kSectionTitleKey,
+                             @"Hours for Tuesday", kSourceKey,
+                             [self makeTextField], kViewKey,
 							 nil],
-							
-							[NSDictionary dictionaryWithObjectsAndKeys:
-                             @"UITextField Secure", kSectionTitleKey,
-                             @"TextFieldController.m: textFieldSecure", kSourceKey,
-                             self.textFieldSecure, kViewKey,
+                            
+                            [NSDictionary dictionaryWithObjectsAndKeys:
+                             @"WednesdayHours", kSectionTitleKey,
+                             @"Hours for Wednesday", kSourceKey,
+                             [self makeTextField], kViewKey,
 							 nil],
-							
-							[NSDictionary dictionaryWithObjectsAndKeys:
-                             @"UITextField (with LeftView)", kSectionTitleKey,
-                             @"TextFieldController.m: textFieldLeftView", kSourceKey,
-                             self.textFieldLeftView, kViewKey,
-                             nil],
+                            
+                            [NSDictionary dictionaryWithObjectsAndKeys:
+                             @"ThursdayHours", kSectionTitleKey,
+                             @"Hours for Thursday", kSourceKey,
+                             [self makeTextField], kViewKey,
+							 nil],
+                            
+                            [NSDictionary dictionaryWithObjectsAndKeys:
+                             @"FridayHours", kSectionTitleKey,
+                             @"Hours for Friday", kSourceKey,
+                             [self makeTextField], kViewKey,
+							 nil],
+                            
+                            [NSDictionary dictionaryWithObjectsAndKeys:
+                             @"SaturdayHours", kSectionTitleKey,
+                             @"Hours for Saturday", kSourceKey,
+                             [self makeTextField], kViewKey,
+							 nil],
+                            
+                            [NSDictionary dictionaryWithObjectsAndKeys:
+                             @"SundayHours", kSectionTitleKey,
+                             @"Hours for Sunday", kSourceKey,
+                             [self makeTextField], kViewKey,
+							 nil],
 							nil];
 	
-	self.title = NSLocalizedString(@"TextFieldTitle", @"");
+	self.title = NSLocalizedString(activityCode, @"");
 	
 	// we aren't editing any fields yet, it will be in edit when the user touches an edit field
 	self.editing = NO;
@@ -74,14 +107,8 @@ const NSInteger kViewTag = 1;
 	// release the controls and set them nil in case they were ever created
 	// note: we can't use "self.xxx = nil" since they are read only properties
 	//
-	[textFieldNormal release];
-	textFieldNormal = nil;		
-	[textFieldRounded release];
-	textFieldRounded = nil;
-	[textFieldSecure release];
-	textFieldSecure = nil;
-	[textFieldLeftView release];
-	textFieldLeftView = nil;
+    
+    
 	
 	self.dataSourceArray = nil;
 }
@@ -102,7 +129,7 @@ const NSInteger kViewTag = 1;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	return 2;
+	return 1;
 }
 
 // to determine specific row height for each cell, override this.
@@ -142,24 +169,24 @@ const NSInteger kViewTag = 1;
 		UITextField *textField = [[self.dataSourceArray objectAtIndex: indexPath.section] valueForKey:kViewKey];
 		[cell.contentView addSubview:textField];
 	}
-	else /* (row == 1) */
-	{
-		static NSString *kSourceCell_ID = @"SourceCell_ID";
-		cell = [tableView dequeueReusableCellWithIdentifier:kSourceCell_ID];
-		if (cell == nil)
-		{
-			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-										   reuseIdentifier:kSourceCell_ID] autorelease];
-			cell.selectionStyle = UITableViewCellSelectionStyleNone;
-			
-            cell.textLabel.textAlignment = UITextAlignmentCenter;
-            cell.textLabel.textColor = [UIColor grayColor];
-			cell.textLabel.highlightedTextColor = [UIColor blackColor];
-            cell.textLabel.font = [UIFont systemFontOfSize:12.0];
-		}
-		
-		cell.textLabel.text = [[self.dataSourceArray objectAtIndex: indexPath.section] valueForKey:kSourceKey];
-	}
+//	else /* (row == 1) */
+//	{
+//		static NSString *kSourceCell_ID = @"SourceCell_ID";
+//		cell = [tableView dequeueReusableCellWithIdentifier:kSourceCell_ID];
+//		if (cell == nil)
+//		{
+//			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+//										   reuseIdentifier:kSourceCell_ID] autorelease];
+//			cell.selectionStyle = UITableViewCellSelectionStyleNone;
+//			
+//            cell.textLabel.textAlignment = UITextAlignmentCenter;
+//            cell.textLabel.textColor = [UIColor grayColor];
+//			cell.textLabel.highlightedTextColor = [UIColor blackColor];
+//            cell.textLabel.font = [UIFont systemFontOfSize:12.0];
+//		}
+//		
+//		cell.textLabel.text = [[self.dataSourceArray objectAtIndex: indexPath.section] valueForKey:kSourceKey];
+//	}
 	
     return cell;
 }
@@ -179,123 +206,33 @@ const NSInteger kViewTag = 1;
 #pragma mark -
 #pragma mark Text Fields
 
-- (UITextField *)textFieldNormal
+- (UITextField *)makeTextField
 {
-	if (textFieldNormal == nil)
-	{
-		CGRect frame = CGRectMake(kLeftMargin, 8.0, kTextFieldWidth, kTextFieldHeight);
-		textFieldNormal = [[UITextField alloc] initWithFrame:frame];
-		
-		textFieldNormal.borderStyle = UITextBorderStyleBezel;
-		textFieldNormal.textColor = [UIColor blackColor];
-		textFieldNormal.font = [UIFont systemFontOfSize:17.0];
-		textFieldNormal.placeholder = @"<enter text>";
-		textFieldNormal.backgroundColor = [UIColor whiteColor];
-		textFieldNormal.autocorrectionType = UITextAutocorrectionTypeNo;	// no auto correction support
-		
-		textFieldNormal.keyboardType = UIKeyboardTypeDefault;	// use the default type input method (entire keyboard)
-		textFieldNormal.returnKeyType = UIReturnKeyDone;
-		
-		textFieldNormal.clearButtonMode = UITextFieldViewModeWhileEditing;	// has a clear 'x' button to the right
-		
-		textFieldNormal.tag = kViewTag;		// tag this control so we can remove it later for recycled cells
-		
-		textFieldNormal.delegate = self;	// let us be the delegate so we know when the keyboard's "Done" button is pressed
-		
-		// Add an accessibility label that describes what the text field is for.
-		[textFieldNormal setAccessibilityLabel:NSLocalizedString(@"NormalTextField", @"")];
-	}	
-	return textFieldNormal;
+    CGRect frame = CGRectMake(kLeftMargin, 8.0, kTextFieldWidth, kTextFieldHeight);
+    UITextField * textField = [[UITextField alloc] initWithFrame:frame];
+    
+    textField.borderStyle = UITextBorderStyleBezel;
+    textField.textColor = [UIColor blackColor];
+    textField.font = [UIFont systemFontOfSize:17.0];
+    textField.placeholder = @"<enter text>";
+    textField.backgroundColor = [UIColor whiteColor];
+    textField.autocorrectionType = UITextAutocorrectionTypeNo;	// no auto correction support
+    
+    textField.keyboardType = UIKeyboardTypeDefault;	// use the default type input method (entire keyboard)
+    textField.returnKeyType = UIReturnKeyDone;
+    
+    textField.clearButtonMode = UITextFieldViewModeWhileEditing;	// has a clear 'x' button to the right
+    
+    textField.tag = kViewTag;		// tag this control so we can remove it later for recycled cells
+    
+    textField.delegate = self;	// let us be the delegate so we know when the keyboard's "Done" button is pressed
+    
+    // Add an accessibility label that describes what the text field is for.
+    [textField setAccessibilityLabel:NSLocalizedString(@"NormalTextField", @"")];
+    [textField autorelease];
+	return textField;
 }
 
-- (UITextField *)textFieldRounded
-{
-	if (textFieldRounded == nil)
-	{
-		CGRect frame = CGRectMake(kLeftMargin, 8.0, kTextFieldWidth, kTextFieldHeight);
-		textFieldRounded = [[UITextField alloc] initWithFrame:frame];
-		
-		textFieldRounded.borderStyle = UITextBorderStyleRoundedRect;
-		textFieldRounded.textColor = [UIColor blackColor];
-		textFieldRounded.font = [UIFont systemFontOfSize:17.0];
-		textFieldRounded.placeholder = @"<enter text>";
-		textFieldRounded.backgroundColor = [UIColor whiteColor];
-		textFieldRounded.autocorrectionType = UITextAutocorrectionTypeNo;	// no auto correction support
-		
-		textFieldRounded.keyboardType = UIKeyboardTypeDefault;
-		textFieldRounded.returnKeyType = UIReturnKeyDone;
-		
-		textFieldRounded.clearButtonMode = UITextFieldViewModeWhileEditing;	// has a clear 'x' button to the right
-		
-		textFieldRounded.tag = kViewTag;		// tag this control so we can remove it later for recycled cells
-		
-		textFieldRounded.delegate = self;	// let us be the delegate so we know when the keyboard's "Done" button is pressed
-		
-		// Add an accessibility label that describes what the text field is for.
-		[textFieldRounded setAccessibilityLabel:NSLocalizedString(@"RoundedTextField", @"")];
-	}
-	return textFieldRounded;
-}
-
-- (UITextField *)textFieldSecure
-{
-	if (textFieldSecure == nil)
-	{
-		CGRect frame = CGRectMake(kLeftMargin, 8.0, kTextFieldWidth, kTextFieldHeight);
-		textFieldSecure = [[UITextField alloc] initWithFrame:frame];
-		textFieldSecure.borderStyle = UITextBorderStyleBezel;
-		textFieldSecure.textColor = [UIColor blackColor];
-		textFieldSecure.font = [UIFont systemFontOfSize:17.0];
-		textFieldSecure.placeholder = @"<enter password>";
-		textFieldSecure.backgroundColor = [UIColor whiteColor];
-		
-		textFieldSecure.keyboardType = UIKeyboardTypeDefault;
-		textFieldSecure.returnKeyType = UIReturnKeyDone;	
-		textFieldSecure.secureTextEntry = YES;	// make the text entry secure (bullets)
-		
-		textFieldSecure.clearButtonMode = UITextFieldViewModeWhileEditing;	// has a clear 'x' button to the right
-		
-		textFieldSecure.tag = kViewTag;		// tag this control so we can remove it later for recycled cells
-		
-		textFieldSecure.delegate = self;	// let us be the delegate so we know when the keyboard's "Done" button is pressed
-		
-		// Add an accessibility label that describes what the text field is for.
-		[textFieldSecure setAccessibilityLabel:NSLocalizedString(@"SecureTextField", @"")];
-	}
-	return textFieldSecure;
-}
-
-- (UITextField *)textFieldLeftView
-{
-	if (textFieldLeftView == nil)
-	{
-		CGRect frame = CGRectMake(kLeftMargin, 8.0, kTextFieldWidth, kTextFieldHeight);
-		textFieldLeftView = [[UITextField alloc] initWithFrame:frame];
-		textFieldLeftView.borderStyle = UITextBorderStyleBezel;
-		textFieldLeftView.textColor = [UIColor blackColor];
-		textFieldLeftView.font = [UIFont systemFontOfSize:17.0];
-		textFieldLeftView.placeholder = @"<enter text>";
-		textFieldLeftView.backgroundColor = [UIColor whiteColor];
-		
-		textFieldLeftView.keyboardType = UIKeyboardTypeDefault;
-		textFieldLeftView.returnKeyType = UIReturnKeyDone;	
-		
-		textFieldLeftView.clearButtonMode = UITextFieldViewModeWhileEditing;	// has a clear 'x' button to the right
-		
-		textFieldLeftView.tag = kViewTag;		// tag this control so we can remove it later for recycled cells
-		
-		// Add an accessibility label that describes the text field.
-		[textFieldLeftView setAccessibilityLabel:NSLocalizedString(@"CheckMarkIcon", @"")];
-		
-		UIImageView *image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"segment_check.png"]];
-        textFieldLeftView.leftView = image;
-        [image release];
-		textFieldLeftView.leftViewMode = UITextFieldViewModeAlways;
-		
-		textFieldLeftView.delegate = self;	// let us be the delegate so we know when the keyboard's "Done" button is pressed
-	}
-	return textFieldLeftView;
-}
 
 @end
 

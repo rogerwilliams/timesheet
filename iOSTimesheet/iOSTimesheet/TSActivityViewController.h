@@ -11,11 +11,12 @@
 @interface TSActivityViewController : UITableViewController <UITextFieldDelegate>
 
 
-@property (nonatomic, retain, readonly) UITextField	*textFieldNormal;
-@property (nonatomic, retain, readonly) UITextField	*textFieldRounded;
-@property (nonatomic, retain, readonly) UITextField	*textFieldSecure;
-@property (nonatomic, retain, readonly) UITextField	*textFieldLeftView;
-
 @property (nonatomic, retain) NSArray *dataSourceArray;
+@property (nonatomic, retain, readonly) NSDate * timeStamp;
+@property (nonatomic, retain, readonly) NSString * activityCode;
+
+
+- (id)initWithNibNameTimeStampandActivityCode:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+                                             timestamp:(NSDate *) timestamp activitycode:(NSString *) activitycode;
 
 @end

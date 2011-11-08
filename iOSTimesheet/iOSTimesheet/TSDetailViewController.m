@@ -215,10 +215,12 @@
 {
     NSLog(@"timesheet task selected");
     TSActivityViewController *activityViewController = [[TSActivityViewController alloc]
-                                                    initWithNibName:@"TSTimesheetActivityView_iPhone" bundle:nil];
+                                                        initWithNibNameTimeStampandActivityCode:@"TSTimesheetActivityView_iPhone" bundle:nil
+                                                        timestamp:[NSDate date] activitycode:@"Activity code"];
+    
 //    UIViewController *targetViewController = [[self.menuList objectAtIndex: indexPath.row] objectForKey:kViewControllerKey];
 	[[self navigationController] pushViewController:activityViewController animated:YES];
-    [activityViewController autorelease];
+    [activityViewController release];
 //    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
 //	    if (!self.detailViewController) {
 //	        self.detailViewController = [[[TSDetailViewController alloc] initWithNibName:@"TSDetailViewController_iPhone" bundle:nil] autorelease];
