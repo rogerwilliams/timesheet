@@ -20,6 +20,7 @@
 @synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
 @synthesize navigationController = _navigationController;
 @synthesize splitViewController = _splitViewController;
+@synthesize couchDBHandler = _couchDBHandler;
 
 - (void)dealloc
 {
@@ -55,7 +56,9 @@
         self.window.rootViewController = self.splitViewController;
         masterViewController.detailViewController = detailViewController;
         masterViewController.managedObjectContext = self.managedObjectContext;
+        masterViewController.couchDBHandler=self.couchDBHandler;
         detailViewController.managedObjectContext = self.managedObjectContext;
+        detailViewController.couchDBHandler = self.couchDBHandler;
     }
     [self.window makeKeyAndVisible];
     return YES;
@@ -114,6 +117,22 @@
             abort();
         } 
     }
+}
+
+#pragma mark - Couch DB
+
+/**
+ Returns the Couch database handler for the application.
+ If the handler doesn't already exist, it is created.
+ */
+- (CouchDBHandler *)couchDBHandler
+{
+    if (_couchDBHandler != nil)
+    {
+        return _couchDBHandler;
+    }
+    _couchDBHandler = [[CouchDBHandler alloc] init];
+   return _couchDBHandler;
 }
 
 #pragma mark - Core Data stack

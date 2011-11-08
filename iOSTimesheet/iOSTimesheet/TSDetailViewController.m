@@ -8,6 +8,7 @@
 
 #import "TSDetailViewController.h"
 #import "TSActivityViewController.h"
+#import "CouchDBHandler.h"
 
 @interface TSDetailViewController ()
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
@@ -24,6 +25,7 @@
 
 @synthesize fetchedResultsController = __fetchedResultsController;
 @synthesize managedObjectContext = __managedObjectContext;
+@synthesize couchDBHandler;
 
 - (void)dealloc
 {

@@ -7,7 +7,6 @@
 //
 
 #import "TSMasterViewController.h"
-
 #import "TSDetailViewController.h"
 
 @interface TSMasterViewController ()
@@ -19,6 +18,7 @@
 @synthesize detailViewController = _detailViewController;
 @synthesize fetchedResultsController = __fetchedResultsController;
 @synthesize managedObjectContext = __managedObjectContext;
+@synthesize couchDBHandler;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

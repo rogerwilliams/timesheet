@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
+
+@class CouchDBHandler;
+
 @interface TSDetailViewController : UITableViewController <UISplitViewControllerDelegate,NSFetchedResultsControllerDelegate>
 
 @property (strong, nonatomic) id detailItem;
@@ -16,5 +19,7 @@
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+
+@property (strong, nonatomic) CouchDBHandler *couchDBHandler;
 
 @end

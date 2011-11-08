@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @class TSDetailViewController;
+@class CouchDBHandler;
 
 #import <CoreData/CoreData.h>
 
@@ -18,5 +19,6 @@
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (strong, nonatomic) CouchDBHandler *couchDBHandler;
 
 @end
