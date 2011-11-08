@@ -25,10 +25,10 @@ const NSInteger kViewTag = 1;
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        [timeStamp retain];
         timeStamp = timestamp;
-        [activityCode retain];
+        [timeStamp retain];
         activityCode = activitycode;
+        [activityCode retain];
     }
 	
     return self;
@@ -37,8 +37,8 @@ const NSInteger kViewTag = 1;
 - (void)dealloc
 {	
 	[dataSourceArray release];
-//    [timeStamp release];
-//    [activityCode release];
+    [timeStamp release];
+    [activityCode release];
 	
 	[super dealloc];
 }
