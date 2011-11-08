@@ -7,6 +7,7 @@
 //
 
 #import "TSDetailViewController.h"
+#import "TSActivityViewController.h"
 
 @interface TSDetailViewController ()
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
@@ -166,7 +167,7 @@
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
         if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-//            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         }
     }
     
@@ -213,6 +214,11 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"timesheet task selected");
+    TSActivityViewController *activityViewController = [[TSActivityViewController alloc]
+                                                    initWithNibName:@"TSTimesheetActivityView_iPhone" bundle:nil];
+//    UIViewController *targetViewController = [[self.menuList objectAtIndex: indexPath.row] objectForKey:kViewControllerKey];
+	[[self navigationController] pushViewController:activityViewController animated:YES];
+    [activityViewController autorelease];
 //    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
 //	    if (!self.detailViewController) {
 //	        self.detailViewController = [[[TSDetailViewController alloc] initWithNibName:@"TSDetailViewController_iPhone" bundle:nil] autorelease];

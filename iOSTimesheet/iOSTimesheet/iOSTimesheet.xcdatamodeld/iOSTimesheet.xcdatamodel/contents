@@ -16,7 +16,7 @@
         <attribute name="weekEndingDate" optional="YES" attributeType="Date" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Event" positionX="261" positionY="189" width="128" height="60"/>
-        <element name="TimesheetActivity" positionX="160" positionY="192" width="128" height="180"/>
+        <element name="Event" positionX="-3296" positionY="-2421" width="128" height="60"/>
+        <element name="TimesheetActivity" positionX="-2990" positionY="-2319" width="128" height="180"/>
     </elements>
 </model>

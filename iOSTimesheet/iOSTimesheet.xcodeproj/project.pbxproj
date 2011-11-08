@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A434B4FD1468B2450081BE77 /* TSActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A434B4FC1468B2450081BE77 /* TSActivityViewController.m */; };
 		A4A10AE41460956400913801 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A10AE31460956400913801 /* UIKit.framework */; };
 		A4A10AE61460956400913801 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A10AE51460956400913801 /* Foundation.framework */; };
 		A4A10AE81460956400913801 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A10AE71460956400913801 /* CoreGraphics.framework */; };
@@ -21,10 +22,13 @@
 		A4A10B051460956400913801 /* TSMasterViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4A10B031460956400913801 /* TSMasterViewController_iPad.xib */; };
 		A4A10B081460956400913801 /* TSDetailViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4A10B061460956400913801 /* TSDetailViewController_iPhone.xib */; };
 		A4A10B0B1460956400913801 /* TSDetailViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4A10B091460956400913801 /* TSDetailViewController_iPad.xib */; };
-		A4A10B1B1460D26B00913801 /* TSDetailTableDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A10B1A1460D26A00913801 /* TSDetailTableDelegate.m */; };
+		A4E6D1681463608000D5E08B /* TSTimesheetActivityView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4E6D1671463608000D5E08B /* TSTimesheetActivityView_iPhone.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A434B4FB1468B2450081BE77 /* TSActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSActivityViewController.h; sourceTree = "<group>"; };
+		A434B4FC1468B2450081BE77 /* TSActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSActivityViewController.m; sourceTree = "<group>"; };
+		A434B4FF1468B3CB0081BE77 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		A4A10ADF1460956400913801 /* iOSTimesheet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSTimesheet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4A10AE31460956400913801 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A4A10AE51460956400913801 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -45,8 +49,7 @@
 		A4A10B041460956400913801 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TSMasterViewController_iPad.xib; sourceTree = "<group>"; };
 		A4A10B071460956400913801 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TSDetailViewController_iPhone.xib; sourceTree = "<group>"; };
 		A4A10B0A1460956400913801 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TSDetailViewController_iPad.xib; sourceTree = "<group>"; };
-		A4A10B191460D26A00913801 /* TSDetailTableDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; path = TSDetailTableDelegate.h; sourceTree = "<group>"; };
-		A4A10B1A1460D26A00913801 /* TSDetailTableDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSDetailTableDelegate.m; sourceTree = "<group>"; };
+		A4E6D1671463608000D5E08B /* TSTimesheetActivityView_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSTimesheetActivityView_iPhone.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,14 +104,16 @@
 				A4A10AFB1460956400913801 /* TSMasterViewController.m */,
 				A4A10AFD1460956400913801 /* TSDetailViewController.h */,
 				A4A10AFE1460956400913801 /* TSDetailViewController.m */,
-				A4A10B191460D26A00913801 /* TSDetailTableDelegate.h */,
-				A4A10B1A1460D26A00913801 /* TSDetailTableDelegate.m */,
 				A4A10B001460956400913801 /* TSMasterViewController_iPhone.xib */,
 				A4A10B031460956400913801 /* TSMasterViewController_iPad.xib */,
 				A4A10B061460956400913801 /* TSDetailViewController_iPhone.xib */,
+				A4E6D1671463608000D5E08B /* TSTimesheetActivityView_iPhone.xib */,
 				A4A10B091460956400913801 /* TSDetailViewController_iPad.xib */,
 				A4A10AF71460956400913801 /* iOSTimesheet.xcdatamodeld */,
 				A4A10AEC1460956400913801 /* Supporting Files */,
+				A434B4FB1468B2450081BE77 /* TSActivityViewController.h */,
+				A434B4FC1468B2450081BE77 /* TSActivityViewController.m */,
+				A434B4FF1468B3CB0081BE77 /* Constants.h */,
 			);
 			path = iOSTimesheet;
 			sourceTree = "<group>";
@@ -180,6 +185,7 @@
 				A4A10B051460956400913801 /* TSMasterViewController_iPad.xib in Resources */,
 				A4A10B081460956400913801 /* TSDetailViewController_iPhone.xib in Resources */,
 				A4A10B0B1460956400913801 /* TSDetailViewController_iPad.xib in Resources */,
+				A4E6D1681463608000D5E08B /* TSTimesheetActivityView_iPhone.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,7 +201,7 @@
 				A4A10AF91460956400913801 /* iOSTimesheet.xcdatamodeld in Sources */,
 				A4A10AFC1460956400913801 /* TSMasterViewController.m in Sources */,
 				A4A10AFF1460956400913801 /* TSDetailViewController.m in Sources */,
-				A4A10B1B1460D26B00913801 /* TSDetailTableDelegate.m in Sources */,
+				A434B4FD1468B2450081BE77 /* TSActivityViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
