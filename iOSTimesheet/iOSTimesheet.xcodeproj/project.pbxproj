@@ -20,6 +20,8 @@
 		A434B5301469DE670081BE77 /* CJSONDeserializer.m in Sources */ = {isa = PBXBuildFile; fileRef = A434B5221469DE670081BE77 /* CJSONDeserializer.m */; };
 		A434B5311469DE670081BE77 /* CJSONScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = A434B5241469DE670081BE77 /* CJSONScanner.m */; };
 		A434B5321469DE670081BE77 /* CJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = A434B5261469DE670081BE77 /* CJSONSerializer.m */; };
+		A434B535146B23AB0081BE77 /* CouchFetchedResultsController.m in Sources */ = {isa = PBXBuildFile; fileRef = A434B534146B23AB0081BE77 /* CouchFetchedResultsController.m */; };
+		A434B538146B25890081BE77 /* CouchFetchRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A434B537146B25890081BE77 /* CouchFetchRequest.m */; };
 		A4A10AE41460956400913801 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A10AE31460956400913801 /* UIKit.framework */; };
 		A4A10AE61460956400913801 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A10AE51460956400913801 /* Foundation.framework */; };
 		A4A10AE81460956400913801 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A10AE71460956400913801 /* CoreGraphics.framework */; };
@@ -66,6 +68,10 @@
 		A434B5251469DE670081BE77 /* CJSONSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSONSerializer.h; sourceTree = "<group>"; };
 		A434B5261469DE670081BE77 /* CJSONSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSONSerializer.m; sourceTree = "<group>"; };
 		A434B5271469DE670081BE77 /* JSONRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONRepresentation.h; sourceTree = "<group>"; };
+		A434B533146B23AB0081BE77 /* CouchFetchedResultsController.h */ = {isa = PBXFileReference; fileEncoding = 4; path = CouchFetchedResultsController.h; sourceTree = "<group>"; };
+		A434B534146B23AB0081BE77 /* CouchFetchedResultsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouchFetchedResultsController.m; sourceTree = "<group>"; };
+		A434B536146B25890081BE77 /* CouchFetchRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouchFetchRequest.h; sourceTree = "<group>"; };
+		A434B537146B25890081BE77 /* CouchFetchRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouchFetchRequest.m; sourceTree = "<group>"; };
 		A4A10ADF1460956400913801 /* iOSTimesheet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSTimesheet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4A10AE31460956400913801 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A4A10AE51460956400913801 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -109,6 +115,10 @@
 			children = (
 				A434B50A1469D2DC0081BE77 /* CouchDBHandler.h */,
 				A434B50B1469D2DC0081BE77 /* CouchDBHandler.m */,
+				A434B533146B23AB0081BE77 /* CouchFetchedResultsController.h */,
+				A434B534146B23AB0081BE77 /* CouchFetchedResultsController.m */,
+				A434B536146B25890081BE77 /* CouchFetchRequest.h */,
+				A434B537146B25890081BE77 /* CouchFetchRequest.m */,
 			);
 			name = utility;
 			sourceTree = "<group>";
@@ -316,6 +326,8 @@
 				A434B5301469DE670081BE77 /* CJSONDeserializer.m in Sources */,
 				A434B5311469DE670081BE77 /* CJSONScanner.m in Sources */,
 				A434B5321469DE670081BE77 /* CJSONSerializer.m in Sources */,
+				A434B535146B23AB0081BE77 /* CouchFetchedResultsController.m in Sources */,
+				A434B538146B25890081BE77 /* CouchFetchRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

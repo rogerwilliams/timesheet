@@ -9,3 +9,7 @@
 #define kTweenMargin			6.0
 
 #define kTextFieldHeight		30.0
+
+#pragma mark View names
+
+#define kViewTimesheetByUser    @"timesheetByUser"

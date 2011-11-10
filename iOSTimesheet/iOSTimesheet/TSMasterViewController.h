@@ -7,18 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreData/CoreData.h>
+#import "CouchFetchedResultsController.h"
 
 @class TSDetailViewController;
 @class CouchDBHandler;
+@class CouchFetchedResultsController;
+@protocol CouchFetchedResultsControllerDelegate;
 
-#import <CoreData/CoreData.h>
 
-@interface TSMasterViewController : UITableViewController <NSFetchedResultsControllerDelegate>
+@interface TSMasterViewController : UITableViewController <NSFetchedResultsControllerDelegate,CouchFetchedResultsControllerDelegate>
 
 @property (strong, nonatomic) TSDetailViewController *detailViewController;
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) CouchDBHandler *couchDBHandler;
+@property (strong, nonatomic) CouchFetchedResultsController *couchFetchResultController;
 
 @end

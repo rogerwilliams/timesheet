@@ -8,6 +8,9 @@
 
 #import "TSMasterViewController.h"
 #import "TSDetailViewController.h"
+#import "CouchFetchRequest.h"
+#import "CouchFetchedResultsController.h"
+#import "Constants.h"
 
 @interface TSMasterViewController ()
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
@@ -19,6 +22,7 @@
 @synthesize fetchedResultsController = __fetchedResultsController;
 @synthesize managedObjectContext = __managedObjectContext;
 @synthesize couchDBHandler;
+@synthesize couchFetchResultController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -189,6 +193,7 @@
     // Set up the fetched results controller.
     // Create the fetch request for the entity.
     NSFetchRequest *fetchRequest = [[[NSFetchRequest alloc] init] autorelease];
+    CouchFetchRequest *couchReq = [[[CouchFetchRequest alloc] initWithViewName:kViewTimesheetByUser] autorelease];
     // Edit the entity name as appropriate.
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Event" inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
@@ -204,11 +209,28 @@
     
     // Edit the section name key path and cache name if appropriate.
     // nil for section name key path means "no sections".
+    CouchFetchedResultsController *aCouchResultController = [[[CouchFetchedResultsController alloc]
+                    initWithCouchRequest:couchReq CouchDBHandler:couchDBHandler] autorelease];
+    self.couchFetchResultController = aCouchResultController;
+    aCouchResultController.delegate = self;
+    NSError *error = nil;
+    if (![self.couchFetchResultController performFetch:&error]) {
+	    /*
+	     Replace this implementation with code to handle the error appropriately.
+         
+	     abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
+	     */
+	    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+	    abort();
+	}
+    
+    
+    
     NSFetchedResultsController *aFetchedResultsController = [[[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Master"] autorelease];
     aFetchedResultsController.delegate = self;
     self.fetchedResultsController = aFetchedResultsController;
     
-	NSError *error = nil;
+	
 	if (![self.fetchedResultsController performFetch:&error]) {
 	    /*
 	     Replace this implementation with code to handle the error appropriately.
@@ -291,7 +313,8 @@
 - (void)insertNewObject
 {
     // Create a new instance of the entity managed by the fetched results controller.
-    NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
+//    NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
+    NSManagedObjectContext *context = self.managedObjectContext;
     NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
     NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
     
