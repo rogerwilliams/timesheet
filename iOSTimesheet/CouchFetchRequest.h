@@ -15,6 +15,8 @@
 @property (readonly,nonatomic,retain) NSString *viewName;
 @property (nonatomic,retain) NSArray *startKey;
 @property (nonatomic,retain) NSArray *endKey;
+@property (nonatomic) int fetchBatchSize;
+@property (nonatomic) BOOL sortAscending;
 
 @end
 

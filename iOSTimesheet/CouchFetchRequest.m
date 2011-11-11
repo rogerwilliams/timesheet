@@ -13,6 +13,8 @@
 @synthesize viewName=_viewName;
 @synthesize startKey=_startKey;
 @synthesize endKey=_endKey;
+@synthesize fetchBatchSize=_fetchBatchSize;
+@synthesize sortAscending;
 
 - (id) initWithViewName: (NSString *) viewName {
     self = [super init];

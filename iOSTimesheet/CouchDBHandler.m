@@ -12,11 +12,22 @@
 
 @implementation CouchDBHandler
 
+@synthesize databaseName;
+
+- (id) initWithDatabaseName:(NSString *) pDatabaseName {
+    self = [super init];
+    if (self){
+        self.databaseName = pDatabaseName;
+    }
+    return self;
+}
+
 - (int)send: (NSString*)method toPath: (NSString*)relativePath body: (NSData*)body ifMatch:(NSString *)ifMatch
 fullResponse: (NSDictionary **) fullResponse eTag: (NSString **)eTag contentType:(NSString *) contentType {
     //    NSLog(@"%@ %@", method, relativePath);
 	NSURL* serverURL = [NSURL URLWithString:@"http://127.0.0.1:5984"];
-    NSURL* url = [NSURL URLWithString: [relativePath stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] relativeToURL:serverURL];
+    NSURL* url = [NSURL URLWithString: [[NSString stringWithFormat:@"%@/%@",
+      self.databaseName,relativePath] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] relativeToURL:serverURL];
     NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL: url];
     request.HTTPMethod = method;
     if (body) {
@@ -40,6 +51,27 @@ fullResponse: (NSDictionary **) fullResponse eTag: (NSString **)eTag contentType
 	
 	*fullResponse = [[CJSONDeserializer deserializer] deserializeAsDictionary:responseBody error:&error];
 	return statusCode;
+}
+
+- (BOOL) deleteObject:(NSDictionary *) objectToBeDeleted{
+    NSString *id = [objectToBeDeleted objectForKey:@"id"];
+    
+    NSString *deletePath = [NSString stringWithFormat:@"%@/%@",self.databaseName,
+                            id];
+    
+    NSString *eTag;
+    NSDictionary *fullResponse;
+    
+    int statusCode=[self send: @"HEAD" toPath: deletePath body: nil ifMatch:nil fullResponse:&fullResponse eTag:&eTag contentType:nil];
+    if (statusCode==200){
+        statusCode=[self send: @"DELETE" toPath: deletePath body:nil ifMatch:eTag fullResponse:&fullResponse eTag:&eTag contentType:nil];
+        if (statusCode!=200)
+            NSLog(@"Error could not delete couch document %@",deletePath);
+        return NO;
+    } else {
+        NSLog(@"Can't find couch document %@ to delete",id);
+        return NO;
+    }
 }
 
 @end

@@ -20,6 +20,9 @@
 - (id) initWithCouchRequest: (CouchFetchRequest *) couchFetchReq 
         CouchDBHandler : (CouchDBHandler *) couchDBHandler;
 
+- (NSArray *) sections;
+- (NSDictionary *) objectAtIndexPath:(NSIndexPath *) indexPath;
+
 - (BOOL) performFetch : (NSError **) error;
 
 @property (readonly, strong, nonatomic) CouchDBHandler *couchDBHandler;

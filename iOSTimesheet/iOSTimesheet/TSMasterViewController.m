@@ -184,7 +184,7 @@
 
 #pragma mark - Fetched results controller
 
-- (NSFetchedResultsController *)fetchedResultsController
+- (CouchFetchedResultsController *) fetchedResultsController
 {
     if (__fetchedResultsController != nil) {
         return __fetchedResultsController;
@@ -192,29 +192,30 @@
     
     // Set up the fetched results controller.
     // Create the fetch request for the entity.
-    NSFetchRequest *fetchRequest = [[[NSFetchRequest alloc] init] autorelease];
-    CouchFetchRequest *couchReq = [[[CouchFetchRequest alloc] initWithViewName:kViewTimesheetByUser] autorelease];
-    // Edit the entity name as appropriate.
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Event" inManagedObjectContext:self.managedObjectContext];
-    [fetchRequest setEntity:entity];
+//    NSFetchRequest *fetchRequest = [[[NSFetchRequest alloc] init] autorelease];
+    CouchFetchRequest *fetchRequest = [[[CouchFetchRequest alloc] initWithViewName:kViewTimesheetByUser] autorelease];
+//    // Edit the entity name as appropriate.
+//    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Event" inManagedObjectContext:self.managedObjectContext];
+//    [fetchRequest setEntity:entity];
     
     // Set the batch size to a suitable number.
     [fetchRequest setFetchBatchSize:20];
     
-    // Edit the sort key as appropriate.
-    NSSortDescriptor *sortDescriptor = [[[NSSortDescriptor alloc] initWithKey:@"timeStamp" ascending:NO] autorelease];
-    NSArray *sortDescriptors = [NSArray arrayWithObjects:sortDescriptor, nil];
+//    // Edit the sort key as appropriate.
+//    NSSortDescriptor *sortDescriptor = [[[NSSortDescriptor alloc] initWithKey:@"timeStamp" ascending:NO] autorelease];
+//    NSArray *sortDescriptors = [NSArray arrayWithObjects:sortDescriptor, nil];
+    [fetchRequest setSortAscending:NO];
     
-    [fetchRequest setSortDescriptors:sortDescriptors];
+//    [fetchRequest setSortDescriptors:sortDescriptors];
     
     // Edit the section name key path and cache name if appropriate.
     // nil for section name key path means "no sections".
     CouchFetchedResultsController *aCouchResultController = [[[CouchFetchedResultsController alloc]
-                    initWithCouchRequest:couchReq CouchDBHandler:couchDBHandler] autorelease];
-    self.couchFetchResultController = aCouchResultController;
+                    initWithCouchRequest:fetchRequest CouchDBHandler:couchDBHandler] autorelease];
+    self.fetchedResultsController = aCouchResultController;
     aCouchResultController.delegate = self;
     NSError *error = nil;
-    if (![self.couchFetchResultController performFetch:&error]) {
+    if (![self.fetchedResultsController performFetch:&error]) {
 	    /*
 	     Replace this implementation with code to handle the error appropriately.
          
@@ -223,23 +224,23 @@
 	    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
 	    abort();
 	}
-    
-    
-    
-    NSFetchedResultsController *aFetchedResultsController = [[[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Master"] autorelease];
-    aFetchedResultsController.delegate = self;
-    self.fetchedResultsController = aFetchedResultsController;
-    
-	
-	if (![self.fetchedResultsController performFetch:&error]) {
-	    /*
-	     Replace this implementation with code to handle the error appropriately.
-
-	     abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
-	     */
-	    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-	    abort();
-	}
+//    
+//    
+//    
+//    NSFetchedResultsController *aFetchedResultsController = [[[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Master"] autorelease];
+//    aFetchedResultsController.delegate = self;
+//    self.fetchedResultsController = aFetchedResultsController;
+//    
+//	
+//	if (![self.fetchedResultsController performFetch:&error]) {
+//	    /*
+//	     Replace this implementation with code to handle the error appropriately.
+//
+//	     abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
+//	     */
+//	    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+//	    abort();
+//	}
     
     return __fetchedResultsController;
 }    

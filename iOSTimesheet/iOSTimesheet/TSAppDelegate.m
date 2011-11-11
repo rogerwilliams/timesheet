@@ -131,7 +131,7 @@
     {
         return _couchDBHandler;
     }
-    _couchDBHandler = [[CouchDBHandler alloc] init];
+    _couchDBHandler = [[CouchDBHandler alloc] initWithDatabaseName:@"timesheetdb"];
    return _couchDBHandler;
 }
 

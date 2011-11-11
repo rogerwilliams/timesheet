@@ -20,9 +20,9 @@
 
 @property (strong, nonatomic) TSDetailViewController *detailViewController;
 
-@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (strong, nonatomic) CouchFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) CouchDBHandler *couchDBHandler;
-@property (strong, nonatomic) CouchFetchedResultsController *couchFetchResultController;
+@property (strong, nonatomic) NSFetchedResultsController *couchFetchResultController;
 
 @end

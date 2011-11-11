@@ -10,6 +10,13 @@
 
 @interface CouchDBHandler : NSObject
 
+@property (retain, nonatomic) NSString *databaseName;
+
+- (id) initWithDatabaseName:(NSString *) pDatabaseName;
+
 - (int)send: (NSString*)method toPath: (NSString*)relativePath body: (NSData*)body ifMatch:(NSString *)ifMatch
     fullResponse: (NSDictionary **) fullResponse eTag: (NSString **)eTag contentType:(NSString *) contentType;
+
+- (BOOL) deleteObject:(NSDictionary *) objectToBeDeleted;
+
 @end
