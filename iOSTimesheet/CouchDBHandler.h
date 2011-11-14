@@ -14,9 +14,9 @@
 
 - (id) initWithDatabaseName:(NSString *) pDatabaseName;
 
-- (int)send: (NSString*)method toPath: (NSString*)relativePath body: (NSData*)body ifMatch:(NSString *)ifMatch
-    fullResponse: (NSDictionary **) fullResponse eTag: (NSString **)eTag contentType:(NSString *) contentType;
+- (int)send: (NSString*)method toPath: (NSString*)relativePath body: (NSData*)body ifMatch:(NSString *)ifMatch fullResponse: (NSDictionary **) fullResponse eTag: (NSString **)eTag contentType:(NSString *) contentType error:(NSError **) error;
 
-- (BOOL) deleteObject:(NSDictionary *) objectToBeDeleted;
+- (BOOL) deleteObject:(NSDictionary *) objectToBeDeleted error: (NSError **) error;
+- (BOOL) insertObject:(NSDictionary *) objectToBeInserted error: (NSError **) error;
 
 @end

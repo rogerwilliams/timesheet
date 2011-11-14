@@ -9,6 +9,7 @@
 #import "CouchFetchedResultsController.h"
 #import "CouchFetchRequest.h"
 #import "CouchDBHandler.h"
+#import "Constants.h"
 
 NSArray *fetchResults;
 
@@ -20,6 +21,7 @@ NSArray *fetchResults;
 
 - (id) initWithCouchRequest: (CouchFetchRequest *) couchFetchReq 
         CouchDBHandler : (CouchDBHandler *) couchDBHandler {
+  NSAssert(couchDBHandler,@"CouchDB handler is null and cannot be");
     self = [super init];
     if (self) {
         _couchDBHandler=couchDBHandler; 
@@ -40,12 +42,15 @@ NSArray *fetchResults;
     NSString *syncView = [NSString stringWithFormat:@"_design/%@/_view/%@",
                           designDoc,viewName];
     NSString *eTag = nil;
-    int statusCode;
-    statusCode = [self.couchDBHandler send: @"GET" toPath: syncView body: nil ifMatch:nil fullResponse:&fullResponse eTag:&eTag contentType:nil];
+    int statusCode = [self.couchDBHandler send: @"GET" toPath: syncView body: nil ifMatch:nil fullResponse:&fullResponse eTag:&eTag contentType:nil error:error];
     if (statusCode==200){
         fetchResults = [fullResponse objectForKey:@"rows"];
-    }   
-    return YES;
+      DLog(@"Fetch complete %d rows",[fetchResults count]);
+      return YES;
+    } else {
+      NSLog(@"fetch failed %d",statusCode);
+      return NO;
+    }
 }
 
 - (NSArray *) sections {
@@ -53,8 +58,9 @@ NSArray *fetchResults;
 }
 
 - (NSDictionary *) objectAtIndexPath:(NSIndexPath *)indexPath{
-    return [fetchResults objectAtIndex:[indexPath indexAtPosition:0]];
-    
+  int rowPosition = [indexPath indexAtPosition:0];
+  NSDictionary * theRow =  [fetchResults objectAtIndex:rowPosition];
+  return [theRow objectForKey:@"value"];
 }
 
 @end

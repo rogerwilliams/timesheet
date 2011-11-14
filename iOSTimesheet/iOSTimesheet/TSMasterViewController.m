@@ -8,6 +8,7 @@
 
 #import "TSMasterViewController.h"
 #import "TSDetailViewController.h"
+#import "CouchDBHandler.h"
 #import "CouchFetchRequest.h"
 #import "CouchFetchedResultsController.h"
 #import "Constants.h"
@@ -104,13 +105,14 @@
 // Customize the number of sections in the table view.
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return [[self.fetchedResultsController sections] count];
+  return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
-    return [sectionInfo numberOfObjects];
+      return [[self.fetchedResultsController sections] count];
+//    NSDictionary * sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
+//    return [sectionInfo numberOfObjects];
 }
 
 // Customize the appearance of table view cells.
@@ -143,12 +145,9 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the managed object for the given index path
-        NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
-        [context deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
-        
-        // Save the context.
-        NSError *error = nil;
-        if (![context save:&error]) {
+      NSError *error;
+      
+      if (![self.couchDBHandler deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath] error:&error]){
             /*
              Replace this implementation with code to handle the error appropriately.
              
@@ -173,11 +172,11 @@
 	        self.detailViewController = [[[TSDetailViewController alloc] initWithNibName:@"TSDetailViewController_iPhone" bundle:nil] autorelease];
             self.detailViewController.managedObjectContext=self.managedObjectContext;
 	    }
-        NSManagedObject *selectedObject = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+        NSDictionary *selectedObject = [[self fetchedResultsController] objectAtIndexPath:indexPath];
         self.detailViewController.detailItem = selectedObject;    
         [self.navigationController pushViewController:self.detailViewController animated:YES];
     } else {
-        NSManagedObject *selectedObject = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+        NSDictionary *selectedObject = [[self fetchedResultsController] objectAtIndexPath:indexPath];
         self.detailViewController.detailItem = selectedObject;    
     }
 }
@@ -307,25 +306,29 @@
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
-    NSManagedObject *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = [[managedObject valueForKey:@"timeStamp"] description];
+    NSDictionary *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
+  NSObject * timestamp = [managedObject valueForKey:kProptimestamp];
+  cell.textLabel.text = [timestamp description];
 }
 
 - (void)insertNewObject
 {
     // Create a new instance of the entity managed by the fetched results controller.
 //    NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
-    NSManagedObjectContext *context = self.managedObjectContext;
-    NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
-    NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
+//    NSManagedObjectContext *context = self.managedObjectContext;
+//    NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
+    NSDictionary *newManagedObject = [[[NSDictionary alloc] 
+                initWithObjectsAndKeys:kTypeTimesheet,kPropType,[NSDate date],kProptimestamp, nil] autorelease];
+    
+//    [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
     
     // If appropriate, configure the new managed object.
     // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
-    [newManagedObject setValue:[NSDate date] forKey:@"timeStamp"];
+//    [newManagedObject setValue:[NSDate date] forKey:@"timeStamp"];
     
     // Save the context.
     NSError *error = nil;
-    if (![context save:&error]) {
+    if (! [self.couchDBHandler insertObject:newManagedObject error:&error]){
         /*
          Replace this implementation with code to handle the error appropriately.
          

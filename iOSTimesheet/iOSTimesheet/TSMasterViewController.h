@@ -25,4 +25,5 @@
 @property (strong, nonatomic) CouchDBHandler *couchDBHandler;
 @property (strong, nonatomic) NSFetchedResultsController *couchFetchResultController;
 
+
 @end

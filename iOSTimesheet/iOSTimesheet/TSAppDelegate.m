@@ -42,6 +42,7 @@
         self.navigationController = [[[UINavigationController alloc] initWithRootViewController:masterViewController] autorelease];
         self.window.rootViewController = self.navigationController;
         masterViewController.managedObjectContext = self.managedObjectContext;
+        masterViewController.couchDBHandler=self.couchDBHandler;
     } else {
         TSMasterViewController *masterViewController = [[[TSMasterViewController alloc] initWithNibName:@"TSMasterViewController_iPad" bundle:nil] autorelease];
         UINavigationController *masterNavigationController = [[[UINavigationController alloc] initWithRootViewController:masterViewController] autorelease];
