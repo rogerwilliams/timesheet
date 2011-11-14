@@ -29,6 +29,8 @@ NSArray *fetchResults;
         _couchFetchRequest=couchFetchReq;
         [_couchFetchRequest retain];
     }
+  [NSThread detachNewThreadSelector:@selector(listenForChanges) toTarget:self
+                         withObject:nil];
     return self;
 }
 
@@ -61,6 +63,37 @@ NSArray *fetchResults;
   int rowPosition = [indexPath indexAtPosition:1];
   NSDictionary * theRow =  [fetchResults objectAtIndex:rowPosition];
   return [theRow objectForKey:@"value"];
+}
+
+- (void) listenForChanges {
+  DLog(@"Listen for changes");
+  NSDictionary *fullResponse;
+  NSError * error;
+  NSString *eTag = nil;
+  
+  NSString *databasePath = @"";
+  
+  int statusCode = [self.couchDBHandler send: @"GET" toPath: databasePath body: nil ifMatch:nil fullResponse:&fullResponse eTag:&eTag contentType:nil error:&error];
+  
+  if (statusCode!=200){
+    NSLog(@"Can't find database");
+    abort();
+  }
+  
+  int updateSeq = [[fullResponse objectForKey:@"update_seq"] intValue];
+  while (true) {
+    NSString *changesPath = [NSString stringWithFormat:@"_changes?feed=longpoll&since=%d",
+                             updateSeq];
+    
+    statusCode = [self.couchDBHandler send: @"GET" toPath: changesPath body: nil ifMatch:nil fullResponse:&fullResponse eTag:&eTag contentType:nil error:&error];
+    if (statusCode==200){
+      //
+      DLog(@"Change detected %@",[fullResponse description]);
+    } else {
+      NSLog(@"fetch failed %d",statusCode);
+    }
+    updateSeq++;
+  }
 }
 
 @end
