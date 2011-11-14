@@ -83,10 +83,10 @@
   NSDictionary *fullResponse;
   if (id == nil) {
     httpMethod = @"POST";
-    path=self.databaseName;
+    path=@"";
   } else {
     httpMethod = @"PUT";
-    path = [NSString stringWithFormat:@"%@/%@",self.databaseName,id];
+    path = id;
   }
   NSData *objectData = [[CJSONSerializer serializer] serializeDictionary:objectToBeInserted error:error];
   int statusCode=[self send: httpMethod toPath: path body:objectData ifMatch:nil fullResponse:&fullResponse eTag:&eTag contentType:@"application/json" error:error];

@@ -58,7 +58,7 @@ NSArray *fetchResults;
 }
 
 - (NSDictionary *) objectAtIndexPath:(NSIndexPath *)indexPath{
-  int rowPosition = [indexPath indexAtPosition:0];
+  int rowPosition = [indexPath indexAtPosition:1];
   NSDictionary * theRow =  [fetchResults objectAtIndex:rowPosition];
   return [theRow objectForKey:@"value"];
 }

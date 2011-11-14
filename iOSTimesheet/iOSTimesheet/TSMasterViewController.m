@@ -307,8 +307,9 @@
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     NSDictionary *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
-  NSObject * timestamp = [managedObject valueForKey:kProptimestamp];
-  cell.textLabel.text = [timestamp description];
+  NSNumber *  timestamp = [managedObject valueForKey:kProptimestamp];
+  NSDate * timestampDate = [NSDate dateWithTimeIntervalSince1970:[timestamp doubleValue]];
+  cell.textLabel.text = [timestampDate description];
 }
 
 - (void)insertNewObject
@@ -317,8 +318,10 @@
 //    NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
 //    NSManagedObjectContext *context = self.managedObjectContext;
 //    NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
+  NSTimeInterval  timeinterval = [[NSDate date] timeIntervalSince1970];
+  NSNumber * timeIntervalObject = [[[NSNumber alloc] initWithDouble:timeinterval] autorelease];
     NSDictionary *newManagedObject = [[[NSDictionary alloc] 
-                initWithObjectsAndKeys:kTypeTimesheet,kPropType,[NSDate date],kProptimestamp, nil] autorelease];
+                initWithObjectsAndKeys:kTypeTimesheet,kPropType,timeIntervalObject,kProptimestamp, nil] autorelease];
     
 //    [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
     
