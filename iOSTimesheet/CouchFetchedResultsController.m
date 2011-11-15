@@ -35,7 +35,6 @@ NSArray *fetchResults;
 }
 
 - (BOOL) performFetch : (NSError **) error {		
-    //Downloaded successfully
     NSDictionary *fullResponse;
     
     NSArray * viewParts = [self.couchFetchRequest.viewName componentsSeparatedByString:@"/"];
@@ -66,6 +65,7 @@ NSArray *fetchResults;
 }
 
 - (void) listenForChanges {
+  NSAutoreleasePool* pool = [[NSAutoreleasePool alloc] init];
   DLog(@"Listen for changes");
   NSDictionary *fullResponse;
   NSError * error;
@@ -94,6 +94,7 @@ NSArray *fetchResults;
     }
     updateSeq++;
   }
+  [pool release];
 }
 
 @end
